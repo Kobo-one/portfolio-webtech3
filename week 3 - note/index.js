@@ -6,7 +6,12 @@ class Note {
     
     createElement(title){
       let newNote = document.createElement('div');
-      let element = 
+      newNote.attributes("card");
+      var para = document.createElement("p");
+      var text = document.createTextNode(this.title);
+      newNote.appendChild(para);
+      para.appendChild(text);
+      
       // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
       
       return newNote;
