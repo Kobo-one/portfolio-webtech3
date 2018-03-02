@@ -6,13 +6,15 @@ class Note {
     
     createElement(title){
       let newNote = document.createElement('div');
-      newNote.attributes("card");
-      var para = document.createElement("p");
-      var text = document.createTextNode(this.title);
+      newNote.setattribute("class","card");
+      let para = document.createElement("p");
+      let text = document.createTextNode(this.title);
       newNote.appendChild(para);
       para.appendChild(text);
-      
-      // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+      let remove = document.createElement("a");
+      remove.innerHTML("Remove");
+      newNote.appendChild(remove);
+      a.addEventListener('click', this.remove.bind(newNote));
       
       return newNote;
     }
