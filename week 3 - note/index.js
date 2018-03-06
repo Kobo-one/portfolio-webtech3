@@ -1,12 +1,12 @@
 class Note {
     constructor(title) {
       this.title = title;
-      // HINT🤩 this.element = this.createElement(title);
+      this.element = this.createElement(title);
     }
     
     createElement(title){
       let newNote = document.createElement('div');
-      newNote.setattribute("class","card");
+      newNote.setAttribute("class","card");
       let para = document.createElement("p");
       let text = document.createTextNode(this.title);
       newNote.appendChild(para);
@@ -55,8 +55,9 @@ class Note {
     }
      
     createNote(e){
+      let title = document.getElementById("txtAddNote").value;
       // this function should create a new note by using the Note() class
-      let note1 = new Note();
+      let note1 = new Note(title);
       // HINT🤩
       // note.add();
       // note.saveToStorage();
