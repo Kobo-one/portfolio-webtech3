@@ -8,19 +8,21 @@ class Note {
       let newNote = document.createElement('div');
       newNote.setAttribute("class","card");
       let para = document.createElement("p");
-      let text = document.createTextNode(this.title);
+      let text = document.createTextNode(title);
       newNote.appendChild(para);
       para.appendChild(text);
       let remove = document.createElement("a");
-      remove.innerHTML("Remove");
+      remove.innerHTML="Remove";
       newNote.appendChild(remove);
-      a.addEventListener('click', this.remove.bind(newNote));
+      remove.addEventListener('click', this.remove.bind(newNote));
       
       return newNote;
     }
     
     add(){
       // HINT🤩
+      let notes = document.querySelector(".notes");
+      notes.appendChild(this.element);
       // this function should append the note to the screen somehow
     }
     
@@ -59,7 +61,7 @@ class Note {
       // this function should create a new note by using the Note() class
       let note1 = new Note(title);
       // HINT🤩
-      // note.add();
+      note1.add();
       // note.saveToStorage();
       // this.reset();
     }
