@@ -78,7 +78,10 @@ class Note {
     
     loadNotesFromStorage() {
       let storedtitles = JSON.parse(localStorage.getItem("titles"));
-
+      for (let i = 0; i < storedtitles.length; i++) { 
+        let note1 = new Note(storedtitles[i]);
+        note1.add();
+      }
       // load all notes from storage here and add them to the screen
       // something like note.add() in a loop would be nice
     }
