@@ -22,20 +22,18 @@ class Note {
     }
     
     add(){
-      // HINT🤩
       let notes = document.querySelector(".notes");
       notes.appendChild(this.element);
       // this function should append the note to the screen somehow
     }
     
     saveToStorage(){
-      // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
     }
     
     remove(){
-      // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
+      // the meaning of 'this' was set by bind() in the createElement function
       this.parentNode.removeChild(this);
 
       // in this function, 'this' will refer to the current note element
@@ -46,16 +44,22 @@ class Note {
     constructor() {
       console.log("👊🏼 The Constructor!");
     
-      // HINT🤩
       // clicking the button should work
       // pressing the enter key should also work
         this.btnAdd = document.getElementById("btnAddNote");
         this.btnAdd.addEventListener("click", this.createNote.bind(this));
+        let input = document.getElementById("txtAddNote");
+        input.addEventListener("keyup", function (event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+            document.getElementById("btnAddNote").click();
+          }
+        });
+
         this.loadNotesFromStorage();
     }
     
     loadNotesFromStorage() {
-      // HINT🤩
       // load all notes from storage here and add them to the screen
       // something like note.add() in a loop would be nice
     }
@@ -65,9 +69,8 @@ class Note {
       // this function should create a new note by using the Note() class
       if(title != ""){
         let note1 = new Note(title);
-        // HINT🤩
         note1.add();
-        // note.saveToStorage();
+       // note.saveToStorage();
         this.reset();
       }
       
