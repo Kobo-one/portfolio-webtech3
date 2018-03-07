@@ -28,6 +28,17 @@ class Note {
     }
     
     saveToStorage(){
+      if(JSON.parse(localStorage.getItem("titles"))){
+        var storedtitles = JSON.parse(localStorage.getItem("titles"));
+        storedtitles.push(this.title);
+      }else{
+        var storedtitles = [this.title];
+        storedtitles.push(this.title);
+        
+      }
+      
+      
+      localStorage.setItem("titles", JSON.stringify(storedtitles));
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
     }
@@ -60,6 +71,8 @@ class Note {
     }
     
     loadNotesFromStorage() {
+      let storedtitles = JSON.parse(localStorage.getItem("titles"));
+
       // load all notes from storage here and add them to the screen
       // something like note.add() in a loop would be nice
     }
@@ -70,7 +83,7 @@ class Note {
       if(title != ""){
         let note1 = new Note(title);
         note1.add();
-       // note.saveToStorage();
+        note1.saveToStorage();
         this.reset();
       }
       
