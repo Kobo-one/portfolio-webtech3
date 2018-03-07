@@ -63,15 +63,18 @@ class Note {
     createNote(e){
       let title = document.getElementById("txtAddNote").value;
       // this function should create a new note by using the Note() class
-      let note1 = new Note(title);
-      // HINT🤩
-      note1.add();
-      // note.saveToStorage();
-      // this.reset();
+      if(title != ""){
+        let note1 = new Note(title);
+        // HINT🤩
+        note1.add();
+        // note.saveToStorage();
+        this.reset();
+      }
+      
     }
     
     reset(){
-      // this function should reset the form 
+      document.getElementById("txtAddNote").value="";
     }
     
   }
