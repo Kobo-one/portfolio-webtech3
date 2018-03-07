@@ -28,12 +28,11 @@ class Note {
     }
     
     saveToStorage(){
-      if(JSON.parse(localStorage.getItem("titles"))){
+      if(localStorage.getItem("titles")){
         var storedtitles = JSON.parse(localStorage.getItem("titles"));
         storedtitles.push(this.title);
       }else{
         var storedtitles = [this.title];
-        storedtitles.push(this.title);
         
       }
       
@@ -46,6 +45,13 @@ class Note {
     remove(){
       // the meaning of 'this' was set by bind() in the createElement function
       this.parentNode.removeChild(this);
+      let storedtitle = JSON.parse(localStorage.getItem("titles"));
+      let cardtitle = this.getElementsByTagName("p")[0].innerHTML;
+      var index = storedtitle.indexOf(cardtitle);
+      if (index != -1) {
+        storedtitle.splice(index, 1);
+        localStorage.setItem("titles", JSON.stringify(storedtitle));
+      };
 
       // in this function, 'this' will refer to the current note element
     } 
